@@ -1,0 +1,7 @@
+.next
+node_modules
+.local-data
+package-lock.json
+next-env.d.ts
+src/assets
+public

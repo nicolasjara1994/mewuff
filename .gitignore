@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+!.env.example
+
+# almacenamiento local de desarrollo (solicitudes y fotos de prueba)
+/.local-data
