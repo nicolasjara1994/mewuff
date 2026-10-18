@@ -301,15 +301,30 @@
     rotate 500ms var(--ease-soft);
 }
 
-/* Con scroll: el color sólido se aplica solo arriba del todo; luego queda translúcido con blur. */
+/* Con scroll: el color sólido se aplica solo arriba del todo; luego queda translúcido con blur y texto oscuro. */
 html[data-scrolled] [data-site-header] {
-  background-color: rgb(31 19 12 / 0.35);
-  border-color: rgb(241 226 206 / 0.08);
+  --color-ink: #2f190c;
+  --color-ink-soft: #422518;
+  --color-cream: #f1e2ce;
+  --color-linen: #e8d7c3;
+  --color-muted: #735446;
+  --color-clay: #9c4a2a;
+  --color-line: #d6c1ac;
+  background-color: rgb(241 226 206 / 0.72);
+  border-color: rgb(47 25 12 / 0.1);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
   backdrop-filter: blur(14px) saturate(1.2);
 }
 
+/* El menú móvil abierto tiene fondo oscuro: el header vuelve a la paleta clara sobre oscuro. */
 html[data-menu-open] [data-site-header] {
+  --color-ink: #f1e2ce;
+  --color-ink-soft: #e8d7c3;
+  --color-cream: #1f130c;
+  --color-linen: #2f190c;
+  --color-muted: #d6c1ac;
+  --color-clay: #e08a63;
+  --color-line: rgb(241 226 206 / 0.22);
   background-color: transparent;
   border-color: transparent;
   -webkit-backdrop-filter: none;
