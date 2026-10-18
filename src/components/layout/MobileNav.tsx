@@ -87,12 +87,12 @@ export function MobileNav() {
       aria-hidden={!open}
       className={cn(
         "fixed inset-x-0 top-0 z-30 flex h-dvh flex-col overflow-y-auto overscroll-contain bg-night px-5 pt-36 pb-[max(2.5rem,env(safe-area-inset-bottom))] md:hidden",
-        // Barrido: el panel se revela de arriba hacia abajo (clip-path) antes de que entren los textos.
+        // Barrido: el panel avanza desde el lado derecho (clip-path) antes de que entren los textos.
         // Al abrir, `visibility` cambia al instante (así el primer enlace puede recibir el foco);
         // al cerrar, se oculta recién cuando termina el barrido.
         open
           ? "visible [clip-path:inset(0)] [transition:clip-path_700ms_var(--ease-soft),visibility_0s]"
-          : "invisible [clip-path:inset(0_0_100%_0)] [transition:clip-path_600ms_var(--ease-soft),visibility_0s_600ms]",
+          : "invisible [clip-path:inset(0_0_0_100%)] [transition:clip-path_600ms_var(--ease-soft),visibility_0s_600ms]",
       )}
     >
       <nav aria-label="Principal móvil" className="my-auto">
