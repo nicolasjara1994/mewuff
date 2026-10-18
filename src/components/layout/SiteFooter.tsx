@@ -32,32 +32,17 @@ export function SiteFooter() {
           </ul>
         </nav>
 
-        <div className="rounded-[1.75rem] bg-night p-6 sm:col-span-2 lg:col-span-1">
-          <h2 className="text-xs font-medium tracking-[0.2em] text-ink uppercase">Síguenos</h2>
-          <ul className="mt-5 flex items-center gap-3">
-            {siteConfig.social.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={item.label}
-                  className="flex size-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-colors duration-300 hover:border-clay-light hover:text-clay-light"
-                >
-                  <SocialIcon name={item.label} className="size-5" />
-                  <span className="sr-only"> (se abre en una pestaña nueva)</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a
-            href={`mailto:${siteConfig.contact.email}`}
-            className="mt-5 block text-sm break-all text-muted transition-colors hover:text-ink"
-          >
-            {siteConfig.contact.email}
-          </a>
+        <div className="hidden md:block">
+          <Follow />
         </div>
       </Container>
+
+      {/* Móvil: "Síguenos" en una banda a todo el ancho con el fondo del menú móvil. */}
+      <div className="border-t border-line bg-night md:hidden">
+        <Container className="py-10">
+          <Follow />
+        </Container>
+      </div>
 
       <Container className="flex flex-col gap-3 border-t border-line py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
@@ -68,5 +53,35 @@ export function SiteFooter() {
         </Link>
       </Container>
     </footer>
+  );
+}
+
+function Follow() {
+  return (
+    <>
+      <h2 className="text-xs font-medium tracking-[0.2em] text-ink uppercase">Síguenos</h2>
+      <ul className="mt-5 flex items-center gap-3">
+        {siteConfig.social.map((item) => (
+          <li key={item.href}>
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={item.label}
+              className="flex size-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-colors duration-300 hover:border-clay-light hover:text-clay-light"
+            >
+              <SocialIcon name={item.label} className="size-5" />
+              <span className="sr-only"> (se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a
+        href={`mailto:${siteConfig.contact.email}`}
+        className="mt-5 block text-sm break-all text-muted transition-colors hover:text-ink"
+      >
+        {siteConfig.contact.email}
+      </a>
+    </>
   );
 }
