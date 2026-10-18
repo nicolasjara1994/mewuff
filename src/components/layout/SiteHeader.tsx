@@ -39,7 +39,10 @@ export function SiteHeader() {
           </ButtonLink>
         </div>
 
-        <MobileNav />
+        <div className="flex items-center gap-1 md:hidden">
+          <CartLink />
+          <MobileNav />
+        </div>
       </Container>
     </header>
   );

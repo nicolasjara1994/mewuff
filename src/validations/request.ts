@@ -10,9 +10,6 @@ import * as z from "zod/mini";
 export const PET_TYPES = [
   { value: "perro", label: "Perro" },
   { value: "gato", label: "Gato" },
-  { value: "conejo", label: "Conejo" },
-  { value: "ave", label: "Ave" },
-  { value: "otro", label: "Otro" },
 ] as const;
 
 export type PetType = (typeof PET_TYPES)[number]["value"];
