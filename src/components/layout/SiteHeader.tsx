@@ -17,7 +17,7 @@ export function SiteHeader() {
     >
       <Container className="relative flex h-16 items-center justify-between gap-6 sm:h-20">
         <HeaderScrollState />
-        <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
+        <div data-logo-wrap className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
           <Logo adaptive />
         </div>
 

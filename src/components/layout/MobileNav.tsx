@@ -86,7 +86,7 @@ export function MobileNav() {
       id={panelId}
       aria-hidden={!open}
       className={cn(
-        "fixed inset-x-0 top-0 z-30 flex h-dvh flex-col overflow-y-auto overscroll-contain bg-night px-5 pt-24 pb-[max(2.5rem,env(safe-area-inset-bottom))] md:hidden",
+        "fixed inset-x-0 top-0 z-30 flex h-dvh flex-col overflow-y-auto overscroll-contain bg-night px-5 pt-36 pb-[max(2.5rem,env(safe-area-inset-bottom))] md:hidden",
         // Al abrir, `visibility` cambia al instante (así el primer enlace puede recibir el foco);
         // al cerrar, se oculta recién cuando termina el fundido.
         open

@@ -576,3 +576,17 @@ html[data-scrolled]:not([data-menu-open]) [data-logo-light] {
 html[data-scrolled]:not([data-menu-open]) [data-logo-dark] {
   display: block;
 }
+
+/* Móvil con el menú abierto: el logo crece y baja para ocupar la cabecera del menú. */
+[data-logo-wrap] {
+  transition:
+    translate 500ms var(--ease-soft),
+    scale 500ms var(--ease-soft);
+}
+
+@media (max-width: 767px) {
+  html[data-menu-open] [data-logo-wrap] {
+    translate: -50% 4.25rem;
+    scale: 1.7;
+  }
+}
