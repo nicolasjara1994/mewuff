@@ -18,7 +18,7 @@ export function Logo({ adaptive = false }: { adaptive?: boolean }) {
       className="group inline-flex items-center rounded-md"
       aria-label={`${siteConfig.name}, ir al inicio`}
     >
-      <Image src={logoLight} alt="" data-logo-light preload={adaptive} className={size} sizes="160px" />
+      <Image src={logoLight} alt="" data-logo-light preload={adaptive} className={`${size} block`} sizes="160px" />
       {adaptive && <Image src={logoBicolor} alt="" data-logo-dark className={`${size} hidden`} sizes="160px" />}
     </Link>
   );
