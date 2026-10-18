@@ -27,9 +27,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # Pages es estático: se excluyen las partes que requieren servidor.
+      # Pages es estático: se quita la API y el seguimiento real se reemplaza por una demo.
       - name: Remove server-only routes
-        run: rm -rf src/app/api src/app/seguimiento
+        run: |
+          rm -rf src/app/api src/app/seguimiento
+          cp -r pages-demo/seguimiento src/app/seguimiento
       - run: npm run build
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
