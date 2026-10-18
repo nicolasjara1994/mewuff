@@ -9,7 +9,7 @@ const WIDTH = 900;
 /** `onDark`: tinta blanca sobre fondo negro; si no, tinta de color sobre fondo blanco. */
 const LOGOS = [
   { file: "mewuff_logo_blanco.png", out: "logo-light.png", onDark: true },
-  { file: "mewuff_logo_negro.png", out: "logo-dark.png", onDark: false },
+  { file: "mewuff_logo_bicolor.png", out: "logo-bicolor.png", onDark: false },
 ];
 
 for (const { file, out, onDark } of LOGOS) {

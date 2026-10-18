@@ -13,7 +13,6 @@ import { mainNav, trackingNav } from "@/lib/site";
 const MENU_ITEMS = [
   ...mainNav,
   trackingNav,
-  { label: "Carro de compras", href: "/carrito" },
   { label: "Crear mi figura", href: "/personaliza", highlight: true },
 ] as const;
 
@@ -87,7 +86,7 @@ export function MobileNav() {
       id={panelId}
       aria-hidden={!open}
       className={cn(
-        "fixed inset-0 z-30 flex flex-col overflow-y-auto bg-night px-5 pt-24 pb-10 md:hidden",
+        "fixed inset-x-0 top-0 z-30 flex h-dvh flex-col overflow-y-auto overscroll-contain bg-night px-5 pt-24 pb-[max(2.5rem,env(safe-area-inset-bottom))] md:hidden",
         // Al abrir, `visibility` cambia al instante (así el primer enlace puede recibir el foco);
         // al cerrar, se oculta recién cuando termina el fundido.
         open
@@ -114,7 +113,7 @@ export function MobileNav() {
                   onClick={() => setOpen(false)}
                   aria-current={pathname === item.href ? "page" : undefined}
                   className={cn(
-                    "group flex min-h-20 items-center justify-center gap-4 text-center font-display text-[2.5rem] leading-none transition-colors duration-300 sm:text-5xl",
+                    "group flex min-h-[clamp(3.5rem,9dvh,5rem)] items-center justify-center gap-4 text-center font-display text-[2.5rem] leading-none transition-colors duration-300 sm:text-5xl",
                     "aria-[current=page]:italic",
                     highlight ? "text-clay-light hover:text-cream" : "text-cream hover:text-clay-light",
                   )}
