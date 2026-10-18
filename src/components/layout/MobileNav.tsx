@@ -87,11 +87,12 @@ export function MobileNav() {
       aria-hidden={!open}
       className={cn(
         "fixed inset-x-0 top-0 z-30 flex h-dvh flex-col overflow-y-auto overscroll-contain bg-night px-5 pt-36 pb-[max(2.5rem,env(safe-area-inset-bottom))] md:hidden",
+        // Barrido: el panel se revela de arriba hacia abajo (clip-path) antes de que entren los textos.
         // Al abrir, `visibility` cambia al instante (así el primer enlace puede recibir el foco);
-        // al cerrar, se oculta recién cuando termina el fundido.
+        // al cerrar, se oculta recién cuando termina el barrido.
         open
-          ? "visible opacity-100 [transition:opacity_500ms_var(--ease-soft),visibility_0s]"
-          : "invisible opacity-0 [transition:opacity_500ms_var(--ease-soft),visibility_0s_500ms]",
+          ? "visible [clip-path:inset(0)] [transition:clip-path_700ms_var(--ease-soft),visibility_0s]"
+          : "invisible [clip-path:inset(0_0_100%_0)] [transition:clip-path_600ms_var(--ease-soft),visibility_0s_600ms]",
       )}
     >
       <nav aria-label="Principal móvil" className="my-auto">
@@ -101,7 +102,7 @@ export function MobileNav() {
             return (
               <li
                 key={item.href}
-                style={{ transitionDelay: open ? `${120 + index * 60}ms` : "0ms" }}
+                style={{ transitionDelay: open ? `${450 + index * 60}ms` : "0ms" }}
                 className={cn(
                   "border-b border-cream/10 transition-[opacity,translate] duration-500 ease-(--ease-soft)",
                   open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
