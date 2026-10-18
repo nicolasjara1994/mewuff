@@ -12,6 +12,12 @@ export interface RateLimitRule {
 export const REQUEST_SUBMISSION_LIMIT: RateLimitRule = { limit: 6, windowSeconds: 15 * 60 };
 
 /**
+ * Consultas de seguimiento (por IP). El código tiene ~887 millones de combinaciones;
+ * este límite hace inviable adivinarlos por fuerza bruta.
+ */
+export const TRACKING_LOOKUP_LIMIT: RateLimitRule = { limit: 20, windowSeconds: 10 * 60 };
+
+/**
  * Rate limiting de ventana fija.
  *
  * - Con Supabase: contador atómico en Postgres (función `consume_rate_limit`),

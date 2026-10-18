@@ -28,7 +28,7 @@ export function getServerEnv(): ServerEnv {
       url && serviceRoleKey
         ? { url, serviceRoleKey, bucket: process.env.SUPABASE_STORAGE_BUCKET?.trim() || "pet-photos" }
         : null,
-    rateLimitSalt: process.env.RATE_LIMIT_SALT?.trim() || "huella-dev-salt",
+    rateLimitSalt: process.env.RATE_LIMIT_SALT?.trim() || "mewuff-dev-salt",
     isProduction,
   };
   return cached;

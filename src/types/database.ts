@@ -27,6 +27,9 @@ export interface Database {
           privacy_policy_version: string;
           ai_analysis: Json | null;
           ai_analyzed_at: string | null;
+          estimated_delivery: string | null;
+          carrier: string | null;
+          carrier_tracking_code: string | null;
         };
         Insert: {
           reference: string;
@@ -44,8 +47,33 @@ export interface Database {
           status?: RequestStatus;
           ai_analysis?: Json | null;
           ai_analyzed_at?: string | null;
+          estimated_delivery?: string | null;
+          carrier?: string | null;
+          carrier_tracking_code?: string | null;
         };
         Relationships: [];
+      };
+      request_status_events: {
+        Row: {
+          id: number;
+          request_id: string;
+          status: RequestStatus;
+          created_at: string;
+        };
+        Insert: {
+          request_id: string;
+          status: RequestStatus;
+        };
+        Update: Record<string, never>;
+        Relationships: [
+          {
+            foreignKeyName: "request_status_events_request_id_fkey";
+            columns: ["request_id"];
+            isOneToOne: false;
+            referencedRelation: "custom_requests";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       request_photos: {
         Row: {

@@ -11,13 +11,13 @@ export type ButtonVariant = "primary" | "secondary" | "ghost";
  */
 export function buttonStyles(variant: ButtonVariant = "primary", className?: string): string {
   return cn(
-    "group inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-7 text-[0.95rem] font-semibold tracking-wide",
+    "group inline-flex min-h-12 items-center justify-center gap-2 rounded-full text-[0.95rem] font-medium tracking-wide",
     "transition-[transform,background-color,color,box-shadow,border-color] duration-300 ease-(--ease-soft)",
     "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
     "disabled:pointer-events-none disabled:opacity-60",
-    variant === "primary" && "bg-ink text-cream shadow-[0_8px_24px_-12px_rgb(43_38_34/0.6)] hover:bg-ink-soft",
-    variant === "secondary" && "border border-ink/25 bg-transparent text-ink hover:border-ink/60 hover:bg-linen",
-    variant === "ghost" && "px-0 text-ink underline decoration-clay/50 underline-offset-[6px] hover:decoration-clay",
+    variant === "primary" && "px-7 bg-ink text-cream shadow-[0_8px_24px_-12px_rgb(47_25_12/0.6)] hover:bg-clay",
+    variant === "secondary" && "px-7 border border-ink/25 bg-transparent text-ink hover:border-ink/60 hover:bg-linen",
+    variant === "ghost" && "text-ink underline decoration-clay/50 underline-offset-[6px] hover:decoration-clay",
     className,
   );
 }

@@ -24,7 +24,7 @@ export default function PrivacyPage() {
         description={`Versión ${PRIVACY_POLICY_VERSION}. Documento en borrador, sujeto a revisión legal.`}
       />
       <Container className="pb-12">
-        <div className="max-w-2xl space-y-10 leading-relaxed text-ink-soft [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:text-ink [&_p]:mt-3 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
+        <div className="max-w-2xl space-y-10 leading-relaxed text-ink-soft [&_h2]:font-display [&_h2]:text-2xl [&_h2]:text-ink [&_p]:mt-3 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
           <section>
             <h2>Qué datos recopilamos</h2>
             <ul>
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
               a{" "}
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="font-semibold text-ink underline underline-offset-4"
+                className="font-medium text-ink underline underline-offset-4"
               >
                 {siteConfig.contact.email}
               </a>{" "}

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#f7f3ec"/>
-  <ellipse cx="16" cy="19.5" rx="5.2" ry="4.4" fill="#8e4f36"/>
-  <ellipse cx="9.8" cy="13.4" rx="2.1" ry="2.7" fill="#8e4f36"/>
-  <ellipse cx="13.9" cy="9.9" rx="2.1" ry="2.8" fill="#8e4f36"/>
-  <ellipse cx="18.1" cy="9.9" rx="2.1" ry="2.8" fill="#8e4f36"/>
-  <ellipse cx="22.2" cy="13.4" rx="2.1" ry="2.7" fill="#8e4f36"/>
+  <rect width="32" height="32" rx="8" fill="#f1e2ce"/>
+  <ellipse cx="16" cy="19.5" rx="5.2" ry="4.4" fill="#543024"/>
+  <ellipse cx="9.8" cy="13.4" rx="2.1" ry="2.7" fill="#543024"/>
+  <ellipse cx="13.9" cy="9.9" rx="2.1" ry="2.8" fill="#543024"/>
+  <ellipse cx="18.1" cy="9.9" rx="2.1" ry="2.8" fill="#543024"/>
+  <ellipse cx="22.2" cy="13.4" rx="2.1" ry="2.7" fill="#543024"/>
 </svg>

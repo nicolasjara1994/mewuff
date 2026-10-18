@@ -1,5 +1,5 @@
 {
-  "name": "huella-atelier",
+  "name": "mewuff-studio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "check": "npm run typecheck && npm run lint && npm run format:check",
-    "generate:placeholders": "node scripts/generate-placeholders.mjs"
+    "prepare:photos": "node scripts/prepare-photos.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.2",

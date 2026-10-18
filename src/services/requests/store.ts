@@ -3,6 +3,7 @@ import "server-only";
 import { getServerEnv } from "@/lib/env";
 import { ServiceUnavailableError } from "@/lib/errors";
 import type { PetPhotoAnalysis } from "@/services/ai/types";
+import type { TrackingView } from "@/types/tracking";
 import type { CreatedRequest, NewCustomRequest, ProcessedPhoto } from "@/types/requests";
 
 /**
@@ -16,6 +17,8 @@ export interface RequestStore {
   deleteRequest(requestId: string): Promise<void>;
   /** Guarda el resultado del análisis de IA (opcional). */
   saveAnalysis(requestId: string, analysis: PetPhotoAnalysis): Promise<void>;
+  /** Datos públicos de seguimiento para un código. `null` si no existe. */
+  findTracking(reference: string): Promise<TrackingView | null>;
 }
 
 export async function getRequestStore(): Promise<RequestStore> {

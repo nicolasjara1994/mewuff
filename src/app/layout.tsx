@@ -1,12 +1,19 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 
+import { FloatingContact } from "@/components/layout/FloatingContact";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -49,7 +56,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f7f3ec",
+  themeColor: "#1f130c",
   colorScheme: "light",
 };
 
@@ -66,7 +73,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es">
+    <html lang="es" data-scroll-behavior="smooth" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-dvh">
         {/* Sin JavaScript, el contenido animado debe verse igual. */}
         <noscript>
@@ -74,14 +81,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </noscript>
         <a
           href="#contenido"
-          className="fixed top-4 left-4 z-50 -translate-y-24 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-cream transition-transform focus:translate-y-0"
+          className="fixed top-4 left-4 z-50 -translate-y-24 rounded-full bg-ink px-5 py-3 text-sm font-medium text-cream transition-transform focus:translate-y-0"
         >
           Saltar al contenido
         </a>
         <MotionProvider>
+          <ScrollProgress />
+          <CustomCursor />
           <SiteHeader />
           <main id="contenido">{children}</main>
           <SiteFooter />
+          <FloatingContact />
         </MotionProvider>
         <JsonLd data={organizationJsonLd} />
       </body>

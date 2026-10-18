@@ -17,7 +17,7 @@ export function getSupabaseAdmin(): SupabaseClient<Database> | null {
 
   client ??= createClient<Database>(supabase.url, supabase.serviceRoleKey, {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
-    global: { headers: { "x-application-name": "huella-atelier-web" } },
+    global: { headers: { "x-application-name": "mewuff-studio-web" } },
   });
   return client;
 }

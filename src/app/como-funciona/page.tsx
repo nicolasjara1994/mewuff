@@ -29,7 +29,7 @@ export default function ProcessPage() {
     <>
       <PageHeader
         eyebrow="Cómo funciona"
-        title="Un proceso cercano, de principio a fin."
+        title="UN PROCESO CERCANO DE PRINCIPIO A FIN"
         description="Cada figura es un encargo único. Así trabajamos para que la pieza que recibas se sienta como tu mascota."
       />
 
@@ -42,13 +42,13 @@ export default function ProcessPage() {
         </Container>
       </section>
 
-      <section aria-labelledby="tips-title" className="bg-linen/60 py-24 sm:py-32">
+      <section aria-labelledby="tips-title" className="py-24 sm:py-32">
         <Container>
           <Reveal>
             <SectionHeading
               id="tips-title"
               eyebrow="Antes de enviar"
-              title="Cómo tomar las mejores fotos de tu mascota."
+              title="CÓMO TOMAR LAS MEJORES FOTOS DE TU MASCOTA"
               description="No necesitas una cámara profesional: un celular y un poco de paciencia son suficientes."
             />
           </Reveal>
@@ -60,7 +60,7 @@ export default function ProcessPage() {
                 delay={index * 0.07}
                 className="rounded-[1.5rem] border border-line bg-cream p-7 transition-transform duration-500 hover:-translate-y-1"
               >
-                <h3 className="font-serif text-xl text-ink">{tip.title}</h3>
+                <h3 className="font-display text-xl text-ink">{tip.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted">{tip.text}</p>
               </Reveal>
             ))}

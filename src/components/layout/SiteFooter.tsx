@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "@/components/ui/Container";
-import { mainNav, siteConfig } from "@/lib/site";
+import { mainNav, siteConfig, trackingNav } from "@/lib/site";
 
 import { Logo } from "./Logo";
 
@@ -9,7 +9,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 border-t border-line bg-linen/60">
+    <footer className="theme-dark bg-cream">
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div className="lg:col-span-2">
           <Logo />
@@ -19,9 +19,9 @@ export function SiteFooter() {
         </div>
 
         <nav aria-label="Pie de página">
-          <h2 className="text-xs font-semibold tracking-[0.2em] text-ink uppercase">Explorar</h2>
+          <h2 className="text-xs font-medium tracking-[0.2em] text-ink uppercase">Explorar</h2>
           <ul className="mt-5 space-y-3">
-            {[{ label: "Crear mi figura", href: "/personaliza" }, ...mainNav].map((item) => (
+            {[{ label: "Crear mi figura", href: "/personaliza" }, ...mainNav, trackingNav].map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-muted transition-colors hover:text-ink">
                   {item.label}
@@ -32,7 +32,7 @@ export function SiteFooter() {
         </nav>
 
         <div>
-          <h2 className="text-xs font-semibold tracking-[0.2em] text-ink uppercase">Síguenos</h2>
+          <h2 className="text-xs font-medium tracking-[0.2em] text-ink uppercase">Síguenos</h2>
           <ul className="mt-5 space-y-3">
             {siteConfig.social.map((item) => (
               <li key={item.href}>

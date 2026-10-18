@@ -32,7 +32,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contacto"
-        title="Conversemos."
+        title="CONVERSEMOS"
         description="¿Tienes una idea especial o una duda antes de encargar? Escríbenos y te respondemos personalmente."
       />
 
@@ -44,8 +44,8 @@ export default function ContactPage() {
               {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="group flex h-full flex-col justify-between gap-10 rounded-[1.75rem] border border-line bg-white/50 p-8 transition-[transform,background-color,border-color] duration-500 hover:-translate-y-1 hover:border-ink/25 hover:bg-white"
             >
-              <span className="text-xs font-semibold tracking-[0.22em] text-clay uppercase">{channel.label}</span>
-              <span className="flex items-center justify-between gap-4 font-serif text-2xl break-all text-ink sm:text-3xl">
+              <span className="text-xs font-medium tracking-[0.22em] text-clay uppercase">{channel.label}</span>
+              <span className="flex items-center justify-between gap-4 font-display text-2xl break-all text-ink sm:text-3xl">
                 {channel.value}
                 <ArrowIcon className="size-5 shrink-0" />
               </span>
@@ -57,16 +57,16 @@ export default function ContactPage() {
         <Reveal delay={0.16} className="md:col-span-2">
           <div className="grid gap-10 rounded-[1.75rem] bg-linen/70 p-8 sm:grid-cols-3">
             <div>
-              <h2 className="text-xs font-semibold tracking-[0.22em] text-ink uppercase">Taller</h2>
+              <h2 className="text-xs font-medium tracking-[0.22em] text-ink uppercase">Taller</h2>
               <p className="mt-3 text-muted">{siteConfig.contact.city}</p>
               <p className="text-muted">Atención solo con cita previa.</p>
             </div>
             <div>
-              <h2 className="text-xs font-semibold tracking-[0.22em] text-ink uppercase">Horario</h2>
+              <h2 className="text-xs font-medium tracking-[0.22em] text-ink uppercase">Horario</h2>
               <p className="mt-3 text-muted">{siteConfig.contact.hours}</p>
             </div>
             <div>
-              <h2 className="text-xs font-semibold tracking-[0.22em] text-ink uppercase">Redes sociales</h2>
+              <h2 className="text-xs font-medium tracking-[0.22em] text-ink uppercase">Redes sociales</h2>
               <ul className="mt-3 space-y-1">
                 {siteConfig.social.map((item) => (
                   <li key={item.href}>

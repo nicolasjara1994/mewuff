@@ -35,7 +35,7 @@ export default function FaqPage() {
     <>
       <PageHeader
         eyebrow="Preguntas frecuentes"
-        title="Todo lo que quieres saber antes de encargar."
+        title="TODO LO QUE QUIERES SABER ANTES DE ENCARGAR"
         description="Si no encuentras tu respuesta, escríbenos: te respondemos personalmente."
       />
       <Container className="space-y-16 pb-12">
@@ -45,7 +45,7 @@ export default function FaqPage() {
             aria-labelledby={`faq-${category}`}
             className="grid gap-6 lg:grid-cols-[14rem_1fr] lg:gap-16"
           >
-            <h2 id={`faq-${category}`} className="text-xs font-semibold tracking-[0.22em] text-clay uppercase lg:pt-6">
+            <h2 id={`faq-${category}`} className="text-xs font-medium tracking-[0.22em] text-clay uppercase lg:pt-6">
               {category}
             </h2>
             <FaqList items={items} />

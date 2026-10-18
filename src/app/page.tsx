@@ -20,7 +20,7 @@ export default async function HomePage() {
 
       <Craft />
 
-      <section id="proceso" aria-labelledby="process-title" className="bg-linen/60 py-24 sm:py-32">
+      <section id="proceso" aria-labelledby="process-title" className="py-24 sm:py-32">
         <Container>
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <Reveal>
@@ -44,7 +44,7 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      <section aria-labelledby="gallery-title" className="py-24 sm:py-32">
+      <section aria-labelledby="gallery-title" className="theme-dark py-24 sm:py-32">
         <Container>
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <Reveal>

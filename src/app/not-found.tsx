@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <Container className="flex min-h-[70dvh] flex-col items-start justify-center pt-32 pb-16">
-      <p className="text-xs font-semibold tracking-[0.22em] text-clay uppercase">Error 404</p>
-      <h1 className="mt-4 font-serif text-5xl text-ink">Esta página se escapó.</h1>
+      <p className="text-xs font-medium tracking-[0.22em] text-clay uppercase">Error 404</p>
+      <h1 className="mt-4 font-display text-5xl text-ink">Esta página se escapó.</h1>
       <p className="mt-4 max-w-md text-lg text-muted">
         Como un gato curioso, la página que buscas no está donde esperabas. Volvamos a un lugar conocido.
       </p>

@@ -106,6 +106,36 @@ export function createSupabaseRequestStore(): RequestStore {
         .eq("id", requestId);
       if (error) throw new Error(`update ai_analysis: ${describeError(error)}`);
     },
+
+    async findTracking(reference) {
+      // Solo columnas públicas: nunca nombre, email, teléfono ni comentarios del cliente.
+      const { data: request, error } = await supabase
+        .from("custom_requests")
+        .select("id, reference, pet_name, status, created_at, estimated_delivery, carrier, carrier_tracking_code")
+        .eq("reference", reference)
+        .maybeSingle();
+      if (error) throw new Error(`select tracking: ${describeError(error)}`);
+      if (!request) return null;
+
+      const { data: events, error: eventsError } = await supabase
+        .from("request_status_events")
+        .select("status, created_at")
+        .eq("request_id", request.id)
+        .order("created_at", { ascending: true })
+        .order("id", { ascending: true });
+      if (eventsError) throw new Error(`select tracking events: ${describeError(eventsError)}`);
+
+      return {
+        reference: request.reference,
+        petName: request.pet_name,
+        status: request.status,
+        createdAt: request.created_at,
+        events: events.map((event) => ({ status: event.status, at: event.created_at })),
+        estimatedDelivery: request.estimated_delivery,
+        carrier: request.carrier,
+        carrierTrackingCode: request.carrier_tracking_code,
+      };
+    },
   };
 }
 

@@ -9,12 +9,12 @@ export function CtaBanner() {
         <Reveal className="relative overflow-hidden rounded-[2rem] bg-ink px-6 py-16 text-center text-cream sm:px-12 sm:py-20">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -top-1/2 left-1/2 h-[120%] w-[90%] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(184_113_79/0.35),transparent)]"
+            className="pointer-events-none absolute -top-1/2 left-1/2 h-[120%] w-[90%] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(169_138_117/0.3),transparent)]"
           />
-          <p className="relative text-xs font-semibold tracking-[0.24em] text-sand uppercase">Empieza hoy</p>
+          <p className="relative text-xs font-medium tracking-[0.24em] text-sand uppercase">Hazlo hoy!</p>
           <h2
             id="cta-title"
-            className="relative mx-auto mt-5 max-w-2xl font-serif text-4xl leading-tight text-balance sm:text-5xl"
+            className="relative mx-auto mt-5 max-w-2xl font-display text-4xl leading-tight text-balance sm:text-5xl"
           >
             Cuéntanos sobre tu mascota. Nosotros nos encargamos del resto.
           </h2>

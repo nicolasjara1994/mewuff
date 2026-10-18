@@ -23,11 +23,11 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
-      {eyebrow && <p className="mb-4 text-xs font-semibold tracking-[0.22em] text-clay uppercase">{eyebrow}</p>}
+      {eyebrow && <p className="mb-4 text-xs font-medium tracking-[0.22em] text-clay uppercase">{eyebrow}</p>}
       <Heading
         id={id}
         className={cn(
-          "font-serif font-normal tracking-[-0.015em] text-balance text-ink",
+          "font-display font-normal tracking-[-0.015em] text-balance text-ink",
           Heading === "h1" ? "text-[2.6rem] leading-[1.05] sm:text-6xl" : "text-[2.1rem] leading-[1.1] sm:text-5xl",
         )}
       >

@@ -162,13 +162,13 @@ export function RequestForm() {
   return (
     <form noValidate onSubmit={handleSubmit} aria-busy={isSubmitting} className="space-y-12">
       {/* Honeypot anti-spam: invisible para personas, tentador para bots. */}
-      <div aria-hidden="true" className="absolute left-[-9999px] h-px w-px overflow-hidden">
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label htmlFor="field-website">No completes este campo</label>
         <input ref={honeypotRef} id="field-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
       <fieldset className="space-y-6" disabled={isSubmitting}>
-        <legend className="mb-6 flex items-baseline gap-3 font-serif text-2xl text-ink">
+        <legend className="mb-6 flex items-baseline gap-3 font-display text-2xl text-ink">
           <span className="text-base text-clay">01</span> Tus datos
         </legend>
         <TextField
@@ -220,12 +220,12 @@ export function RequestForm() {
       </fieldset>
 
       <fieldset className="space-y-6" disabled={isSubmitting}>
-        <legend className="mb-6 flex items-baseline gap-3 font-serif text-2xl text-ink">
+        <legend className="mb-6 flex items-baseline gap-3 font-display text-2xl text-ink">
           <span className="text-base text-clay">02</span> Tu mascota
         </legend>
 
         <fieldset aria-describedby={errors.petType ? "field-petType-error" : undefined}>
-          <legend className="mb-3 text-sm font-semibold text-ink">Tipo de mascota</legend>
+          <legend className="mb-3 text-sm font-medium text-ink">Tipo de mascota</legend>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
             {PET_TYPES.map((type, index) => (
               <div key={type.value}>
@@ -288,7 +288,7 @@ export function RequestForm() {
       </fieldset>
 
       <section aria-labelledby="photos-title" className="space-y-6">
-        <h3 id="photos-title" className="flex items-baseline gap-3 font-serif text-2xl text-ink">
+        <h3 id="photos-title" className="flex items-baseline gap-3 font-display text-2xl text-ink">
           <span className="text-base text-clay">03</span> Fotografías
         </h3>
         <PhotoUploader
@@ -319,9 +319,9 @@ export function RequestForm() {
               className="mt-1 size-5 shrink-0 cursor-pointer rounded border-line accent-ink"
             />
             <label htmlFor="field-privacyConsent" className="cursor-pointer text-sm leading-relaxed text-ink-soft">
-              Acepto que Huella Atelier use mis datos y las fotografías de mi mascota solo para evaluar y fabricar mi
+              Acepto que MeWuff Studio use mis datos y las fotografías de mi mascota solo para evaluar y fabricar mi
               figura, según la{" "}
-              <Link href="/privacidad" target="_blank" className="font-semibold text-ink underline underline-offset-4">
+              <Link href="/privacidad" target="_blank" className="font-medium text-ink underline underline-offset-4">
                 política de privacidad
                 <span className="sr-only"> (se abre en una pestaña nueva)</span>
               </Link>

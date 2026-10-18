@@ -1,4 +1,4 @@
-# Huella Atelier
+# MeWuff Studio
 
 Sitio web para una marca (simulada) de **figuras artesanales y personalizadas de mascotas**. Los clientes conocen el
 producto y envían fotografías de su mascota para que el taller evalúe y fabrique una figura única.
@@ -24,15 +24,15 @@ la API responde `503` de forma segura.
 
 ### Scripts
 
-| Script                          | Descripción                                             |
-| ------------------------------- | ------------------------------------------------------- |
-| `npm run dev`                   | Servidor de desarrollo                                  |
-| `npm run build` / `npm start`   | Build y servidor de producción                          |
-| `npm run lint`                  | ESLint (reglas de Next, Core Web Vitals, accesibilidad) |
-| `npm run typecheck`             | Verificación de tipos con TypeScript                    |
-| `npm run format`                | Formatea con Prettier (+ orden de clases de Tailwind)   |
-| `npm run check`                 | typecheck + lint + formato (ideal para CI)              |
-| `npm run generate:placeholders` | Regenera las imágenes de muestra                        |
+| Script                        | Descripción                                                 |
+| ----------------------------- | ----------------------------------------------------------- |
+| `npm run dev`                 | Servidor de desarrollo                                      |
+| `npm run build` / `npm start` | Build y servidor de producción                              |
+| `npm run lint`                | ESLint (reglas de Next, Core Web Vitals, accesibilidad)     |
+| `npm run typecheck`           | Verificación de tipos con TypeScript                        |
+| `npm run format`              | Formatea con Prettier (+ orden de clases de Tailwind)       |
+| `npm run check`               | typecheck + lint + formato (ideal para CI)                  |
+| `npm run prepare:photos`      | Optimiza las fotos de ejemplo y genera la imagen para redes |
 
 ---
 
@@ -77,7 +77,7 @@ Ver [`.env.example`](.env.example).
 1. Sube el repositorio a GitHub/GitLab e impórtalo en [vercel.com/new](https://vercel.com/new) (detecta Next.js
    automáticamente).
 2. En **Settings → Environment Variables** define `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `RATE_LIMIT_SALT` y
-   `NEXT_PUBLIC_SITE_URL` (tu dominio final, p. ej. `https://huella-atelier.cl`).
+   `NEXT_PUBLIC_SITE_URL` (tu dominio final, p. ej. `https://mewuff-studio.cl`).
 3. Despliega. Las previews de Vercel quedan con `robots.txt` en `Disallow: /` para no ser indexadas.
 
 Para generar un salt: `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`.
@@ -119,7 +119,7 @@ src/
    origen (CSRF) → tipo y tamaño del body → rate limit por IP hasheada → honeypot + tiempo mínimo → validación Zod →
    validación de archivos (cantidad, tamaño, extensión, MIME, _magic bytes_) → **re-codificación con sharp**
    (elimina metadatos y cualquier contenido embebido, limita resolución y píxeles) → persistencia con rollback.
-3. **Respuesta**: código de referencia legible (`HA-XXXXXX`), sin exponer el UUID interno.
+3. **Respuesta**: código de referencia legible (`MW-XXXXXX`), sin exponer el UUID interno.
 
 ### Decisiones técnicas
 
@@ -149,16 +149,20 @@ src/
 
 ## Reemplazar las imágenes de muestra
 
-Las imágenes de `src/assets/placeholders/` son ilustraciones generadas por
-[`scripts/generate-placeholders.mjs`](scripts/generate-placeholders.mjs) (sin copyright de terceros) y se muestran con
-la etiqueta **"Imagen de muestra"**.
+La sección "Nuestro oficio", la galería y la imagen para redes usan fotos de EJEMPLO de dos gatos (Leia y
+Luke), optimizadas en `src/assets/pets/` y mostradas con la etiqueta **"Imagen de muestra"**.
 
-- **Hero y sección "Nuestro oficio"**: reemplaza `hero.webp` y `atelier.webp` y ajusta el `alt` en `Hero.tsx` y
-  `Craft.tsx`.
-- **Galería**: edita [`src/services/gallery/gallery.ts`](src/services/gallery/gallery.ts). Para fotos reales, usa
-  `isPlaceholder: false` y desaparece la etiqueta. Para una galería administrable, crea una tabla `gallery_items` y un
-  bucket **público** separado en Supabase, léelos en `getGalleryItems()` y agrega el dominio en `images.remotePatterns`
-  de `next.config.ts`.
+- **Cambiar las fotos de ejemplo**: reemplaza `public/leiaimage.jpeg` y `public/lukeimage.jpeg` y ejecuta
+  `npm run prepare:photos`. El script genera las versiones WebP optimizadas (sin metadatos EXIF/GPS) y la imagen
+  Open Graph. Los originales de `public/` se siguen usando como fotos de fondo de sección (`SectionBackdrop`) y se sirven públicamente a través del optimizador de imágenes de Next.
+- **Hero (escultura)**: es un PNG con fondo transparente, `src/assets/figures/hero-sculpture.png`, generado por
+  `node scripts/generate-sculpture.mjs` (ilustración propia, sin copyright). Para usar una foto real, reemplaza ese
+  archivo por tu PNG con fondo transparente en proporción 4:5 y ajusta el `alt` en `Hero.tsx`.
+- **Sección "Nuestro oficio"**: importa `luke.webp`; ajusta el `alt` en `Craft.tsx` al usar fotos propias.
+- **Galería**: edita [`src/services/gallery/gallery.ts`](src/services/gallery/gallery.ts). Para fotos reales de
+  figuras terminadas, usa `isPlaceholder: false` y desaparece la etiqueta. Para una galería administrable, crea una
+  tabla `gallery_items` y un bucket **público** separado en Supabase, léelos en `getGalleryItems()` y agrega el
+  dominio en `images.remotePatterns` de `next.config.ts`.
 
 ---
 

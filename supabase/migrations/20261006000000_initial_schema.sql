@@ -1,5 +1,5 @@
 -- =============================================================================
--- Huella Atelier · Esquema inicial
+-- MeWuff Studio · Esquema inicial
 --
 -- Modelo de seguridad:
 --   * El sitio NO usa la clave anon/publishable: todo acceso ocurre desde el
@@ -32,7 +32,7 @@ create type public.request_status as enum (
 -- ---------------------------------------------------------------------------
 create table public.custom_requests (
   id                      uuid primary key default gen_random_uuid(),
-  reference               text not null unique check (reference ~ '^HA-[0-9A-Z]{6}$'),
+  reference               text not null unique check (reference ~ '^MW-[0-9A-Z]{6}$'),
   created_at              timestamptz not null default now(),
   updated_at              timestamptz not null default now(),
   customer_name           text not null check (char_length(customer_name) between 2 and 80),

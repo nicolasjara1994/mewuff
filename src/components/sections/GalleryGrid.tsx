@@ -15,7 +15,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
           className={index % 3 === 1 ? "lg:translate-y-12" : undefined}
         >
           <figure className="group">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-sand">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-line">
               <Image
                 src={item.image}
                 alt={item.alt}
@@ -26,7 +26,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
               {item.isPlaceholder && <PlaceholderBadge className="absolute top-3 left-3" />}
             </div>
             <figcaption className="mt-4 flex items-baseline justify-between gap-4">
-              <span className="font-serif text-xl text-ink">{item.title}</span>
+              <span className="font-display text-xl text-ink">{item.title}</span>
               <span className="shrink-0 text-sm text-muted">{item.species}</span>
             </figcaption>
             <p className="mt-1 text-sm text-muted">{item.finish}</p>

@@ -2,12 +2,16 @@ import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 const ROUTES: Array<{ path: string; priority: number; changeFrequency: "weekly" | "monthly" | "yearly" }> = [
   { path: "", priority: 1, changeFrequency: "weekly" },
   { path: "/personaliza", priority: 0.9, changeFrequency: "monthly" },
   { path: "/como-funciona", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/tienda", priority: 0.7, changeFrequency: "monthly" },
   { path: "/galeria", priority: 0.8, changeFrequency: "weekly" },
   { path: "/preguntas-frecuentes", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/seguimiento", priority: 0.3, changeFrequency: "yearly" },
   { path: "/contacto", priority: 0.5, changeFrequency: "yearly" },
   { path: "/privacidad", priority: 0.2, changeFrequency: "yearly" },
 ];

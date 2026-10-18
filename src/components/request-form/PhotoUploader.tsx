@@ -59,7 +59,7 @@ export function PhotoUploader({
   return (
     <div>
       <div className="flex items-baseline justify-between gap-3">
-        <p className="text-sm font-semibold text-ink" id={`${INPUT_ID}-label`}>
+        <p className="text-sm font-medium text-ink" id={`${INPUT_ID}-label`}>
           Fotografías de tu mascota
         </p>
         <p className="text-xs text-muted" aria-live="polite">
@@ -72,7 +72,7 @@ export function PhotoUploader({
 
       <ul className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4" aria-label="Fotografías seleccionadas">
         {photos.map((photo, index) => (
-          <li key={photo.id} className="group relative aspect-square overflow-hidden rounded-xl bg-sand">
+          <li key={photo.id} className="group relative aspect-square overflow-hidden rounded-xl bg-line">
             {/* Previews locales (blob:) — next/image no aplica a object URLs. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -156,7 +156,7 @@ export function PhotoUploader({
                 />
               </svg>
             </span>
-            <span id={`${INPUT_ID}-action`} className="text-base font-semibold text-ink">
+            <span id={`${INPUT_ID}-action`} className="text-base font-medium text-ink">
               {photos.length > 0 ? "Agregar más fotografías" : "Selecciona tus fotografías"}
             </span>
             <span className="text-sm text-muted">

@@ -18,12 +18,12 @@ export default async function GalleryPage() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Galería"
-        title="Piezas únicas, hechas con cariño."
-        description="Cada figura nace de las fotos y las historias que nos comparten. Estas son algunas de ellas."
-      />
-      <section aria-label="Figuras terminadas" className="pb-16">
+      <section aria-label="Galería de figuras" className="theme-dark pb-16">
+        <PageHeader
+          eyebrow="Galería"
+          title="PIEZAS ÚNICAS, HECHAS CON CARIÑO"
+          description="Cada figura nace de las fotos y las historias que nos comparten. Estas son algunas de ellas."
+        />
         <Container className="lg:pb-12">
           <GalleryGrid items={items} />
         </Container>

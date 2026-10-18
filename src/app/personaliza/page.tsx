@@ -24,7 +24,7 @@ export default function PersonalizePage() {
     <>
       <PageHeader
         eyebrow="Personaliza tu figura"
-        title="Cuéntanos sobre tu mascota."
+        title="CUÉNTANOS SOBRE TU MASCOTA"
         description="Completa el formulario y envíanos algunas fotos. Lo revisamos con calma y te respondemos con una propuesta sin compromiso."
       />
 
@@ -40,8 +40,8 @@ export default function PersonalizePage() {
         </section>
 
         <aside aria-labelledby="checklist-title" className="lg:sticky lg:top-28 lg:self-start">
-          <h2 id="checklist-title" className="font-serif text-2xl text-ink">
-            Qué fotos enviar
+          <h2 id="checklist-title" className="font-display text-2xl text-ink">
+            QUÉ FOTOS ENVIAR
           </h2>
           <ul className="mt-6 space-y-4">
             {CHECKLIST.map((item) => (
@@ -60,7 +60,7 @@ export default function PersonalizePage() {
             ))}
           </ul>
           <div className="mt-10 rounded-2xl border border-line p-5">
-            <h3 className="text-sm font-semibold text-ink">Tus fotos están protegidas</h3>
+            <h3 className="text-sm font-medium text-ink">TUS FOTOS ESTÁN PROTEGIDAS</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               Las guardamos de forma privada, sin metadatos de ubicación, y solo nuestro equipo puede verlas. Puedes
               pedir que las eliminemos cuando quieras.

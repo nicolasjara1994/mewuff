@@ -26,7 +26,7 @@ export function describedBy(id: string, hint?: ReactNode, error?: string): strin
 export function FieldShell({ id, label, hint, error, optional, children }: FieldShellProps) {
   return (
     <div>
-      <label htmlFor={id} className="mb-2 flex items-baseline justify-between gap-3 text-sm font-semibold text-ink">
+      <label htmlFor={id} className="mb-2 flex items-baseline justify-between gap-3 text-sm font-medium text-ink">
         {label}
         {optional && <span className="text-xs font-normal text-muted">Opcional</span>}
       </label>

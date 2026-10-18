@@ -48,23 +48,23 @@ export function RequestSuccess({ reference, email, petName }: RequestSuccessProp
         </svg>
       </span>
 
-      <h2 ref={headingRef} tabIndex={-1} className="mt-6 font-serif text-3xl text-ink outline-none sm:text-4xl">
+      <h2 ref={headingRef} tabIndex={-1} className="mt-6 font-display text-3xl text-ink outline-none sm:text-4xl">
         ¡Recibimos la solicitud de {petName}!
       </h2>
       <p className="mx-auto mt-4 max-w-md leading-relaxed text-muted">
         Gracias por confiarnos a tu compañero. Te escribiremos a{" "}
-        <strong className="font-semibold text-ink">{email}</strong> en un plazo de 1 a 2 días hábiles.
+        <strong className="font-medium text-ink">{email}</strong> en un plazo de 1 a 2 días hábiles.
       </p>
 
       <div className="mx-auto mt-8 inline-flex flex-col items-center rounded-2xl bg-linen px-6 py-4">
-        <span className="text-xs font-semibold tracking-[0.2em] text-muted uppercase">Número de solicitud</span>
+        <span className="text-xs font-medium tracking-[0.2em] text-muted uppercase">Número de solicitud</span>
         <span className="mt-1 font-mono text-2xl tracking-widest text-ink">{reference}</span>
       </div>
 
       <ol className="mx-auto mt-10 max-w-sm space-y-4 text-left">
         {NEXT_STEPS.map((step, index) => (
           <li key={step} className="flex gap-4">
-            <span className="font-serif text-lg text-clay" aria-hidden="true">
+            <span className="font-display text-lg text-clay" aria-hidden="true">
               {index + 1}.
             </span>
             <span className="leading-relaxed text-ink-soft">{step}</span>
@@ -73,7 +73,10 @@ export function RequestSuccess({ reference, email, petName }: RequestSuccessProp
       </ol>
 
       <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-        <ButtonLink href="/">Volver al inicio</ButtonLink>
+        <ButtonLink href={`/seguimiento/${reference}`}>Seguir mi solicitud</ButtonLink>
+        <ButtonLink href="/" variant="secondary">
+          Volver al inicio
+        </ButtonLink>
         <ButtonLink href="/galeria" variant="secondary">
           Ver la galería
         </ButtonLink>

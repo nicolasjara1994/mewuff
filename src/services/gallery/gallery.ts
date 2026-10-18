@@ -1,79 +1,79 @@
-import copito from "@/assets/placeholders/gallery-copito.webp";
-import luna from "@/assets/placeholders/gallery-luna.webp";
-import mora from "@/assets/placeholders/gallery-mora.webp";
-import pancho from "@/assets/placeholders/gallery-pancho.webp";
-import simon from "@/assets/placeholders/gallery-simon.webp";
-import tango from "@/assets/placeholders/gallery-tango.webp";
+import leia from "@/assets/pets/leia.webp";
+import luke from "@/assets/pets/luke.webp";
 import type { GalleryItem } from "@/types/gallery";
 
 /**
  * Fuente de datos de la galería.
  *
- * Hoy devuelve imágenes de MUESTRA locales. Para usar fotos reales:
- *   - Opción simple: reemplazar los archivos en `src/assets/` y los textos de abajo.
+ * Hoy muestra fotos de EJEMPLO (Leia y Luke) repetidas para completar la grilla.
+ * Para usar fotos reales de figuras terminadas:
+ *   - Opción simple: reemplazar las imágenes en `src/assets/` y los textos de abajo.
  *   - Opción dinámica: crear una tabla `gallery_items` + bucket PÚBLICO en Supabase,
  *     leerla aquí (es async a propósito) y agregar el dominio de Supabase en
  *     `images.remotePatterns` de next.config.ts.
  */
+const LEIA_ALT = "Fotografía de muestra de Leia, una gata blanca de ojos color ámbar mirando hacia arriba.";
+const LUKE_ALT = "Fotografía de muestra de Luke, un gato gris de ojos color ámbar con la cabeza ladeada.";
+
 const DEMO_ITEMS: GalleryItem[] = [
   {
-    id: "simon",
-    title: "Simón, en porcelana",
-    petName: "Simón",
+    id: "leia-1",
+    title: "Leia, en porcelana",
+    petName: "Leia",
     species: "Gato",
     finish: "Porcelana fría, acabado mate",
-    alt: "Figura de muestra de un gato sentado, color marfil, sobre una base de madera.",
-    image: simon,
+    alt: LEIA_ALT,
+    image: leia,
     isPlaceholder: true,
   },
   {
-    id: "luna",
-    title: "Luna, en terracota",
-    petName: "Luna",
-    species: "Perro",
-    finish: "Resina patinada en terracota",
-    alt: "Figura de muestra de un perro sentado de orejas caídas, color terracota, sobre una base de madera.",
-    image: luna,
-    isPlaceholder: true,
-  },
-  {
-    id: "copito",
-    title: "Copito, en arena",
-    petName: "Copito",
-    species: "Conejo",
-    finish: "Cerámica en frío, tono arena",
-    alt: "Figura de muestra de un conejo con una oreja de color más oscuro, sobre una base de madera.",
-    image: copito,
-    isPlaceholder: true,
-  },
-  {
-    id: "tango",
-    title: "Tango, en grafito",
-    petName: "Tango",
-    species: "Perro",
+    id: "luke-1",
+    title: "Luke, en grafito",
+    petName: "Luke",
+    species: "Gato",
     finish: "Resina, acabado grafito satinado",
-    alt: "Figura de muestra de un perro sentado color grafito, sobre una base de madera.",
-    image: tango,
+    alt: LUKE_ALT,
+    image: luke,
     isPlaceholder: true,
   },
   {
-    id: "mora",
-    title: "Mora, en miel",
-    petName: "Mora",
-    species: "Gata",
+    id: "leia-2",
+    title: "Leia, en marfil",
+    petName: "Leia",
+    species: "Gato",
+    finish: "Cerámica en frío, tono marfil",
+    alt: LEIA_ALT,
+    image: leia,
+    isPlaceholder: true,
+  },
+  {
+    id: "luke-2",
+    title: "Luke, en terracota",
+    petName: "Luke",
+    species: "Gato",
+    finish: "Resina patinada en terracota",
+    alt: LUKE_ALT,
+    image: luke,
+    isPlaceholder: true,
+  },
+  {
+    id: "leia-3",
+    title: "Leia, en arena",
+    petName: "Leia",
+    species: "Gato",
+    finish: "Cerámica en frío, tono arena",
+    alt: LEIA_ALT,
+    image: leia,
+    isPlaceholder: true,
+  },
+  {
+    id: "luke-3",
+    title: "Luke, en miel",
+    petName: "Luke",
+    species: "Gato",
     finish: "Resina translúcida, tono miel",
-    alt: "Figura de muestra de una gata color miel con manchas más oscuras, sobre una base de madera.",
-    image: mora,
-    isPlaceholder: true,
-  },
-  {
-    id: "pancho",
-    title: "Pancho, en salvia",
-    petName: "Pancho",
-    species: "Perro",
-    finish: "Cerámica en frío, verde salvia",
-    alt: "Figura de muestra de un perro sentado en tono verde salvia, sobre una base de madera.",
-    image: pancho,
+    alt: LUKE_ALT,
+    image: luke,
     isPlaceholder: true,
   },
 ];

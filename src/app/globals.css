@@ -1,26 +1,32 @@
-@import url("https://fonts.cdnfonts.com/css/mugient");
 @import "tailwindcss";
 
 /*
- * Paleta sobria y cálida. Contrastes verificados contra --color-cream:
- *   ink 13.9:1 · ink-soft 9.5:1 · muted 5.6:1 · clay 5.9:1 · error 6.3:1
+ * Paleta de marca (Matiz): 2F190C Deep Terracotta · 543024 Burnt Clay · A98A75 Sand · F1E2CE Soft Ivory.
+ * Los tonos intermedios (linen, line, ink-soft, muted) se derivan mezclando esos cuatro.
+ * Contrastes verificados (WCAG, mínimo 4,5:1 para texto):
+ *   ink/cream 13,1 · ink-soft/cream 10,9 · clay (terracota)/cream 4,8 · sage/cream 4,9 · muted/cream 5,4 · muted/linen 4,8 · blanco/accent 5,1
+ *   cream/ink 13,1 · sand/ink 5,2 · sand/night 6,1 · error/cream 5,5 · success/cream 5,2
+ * "sand" (A98A75) NO cumple como texto sobre fondo claro (2,5:1): solo para detalles, relleno y sobre fondos oscuros.
  */
 @theme {
-  --color-cream: #f7f3ec;
-  --color-linen: #efe8dd;
-  --color-sand: #e4d9c8;
-  --color-line: #dcd1c0;
-  --color-ink: #2b2622;
-  --color-ink-soft: #463e37;
-  --color-muted: #6b625a;
-  --color-clay: #8e4f36;
-  --color-clay-soft: #b8714f;
-  --color-sage: #6c735d;
+  --color-cream: #f1e2ce;
+  --color-linen: #e8d7c3;
+  --color-sand: #a98a75;
+  --color-line: #d6c1ac;
+  --color-ink: #2f190c;
+  --color-ink-soft: #422518;
+  --color-muted: #735446;
+  --color-clay: #9c4a2a;
+  --color-accent: #ad5430;
+  --color-clay-soft: #a98a75;
+  --color-sage: #56664a;
   --color-error: #a3302a;
   --color-success: #3d6648;
+  --color-night: #0f0d0b;
+  --color-clay-light: #a98a75;
 
-  --font-sans: "Mugient", Georgia, serif;
-  --font-serif: "Mugient", Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -43,6 +49,12 @@
     color-scheme: light;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+    /* Evita el salto de ancho cuando aparece o desaparece la barra de scroll. */
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-clay-soft) var(--color-linen);
+    /* Sin "rebote" encadenado en paneles internos. */
+    overscroll-behavior-y: none;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -52,17 +64,52 @@
   }
 
   body {
-    background-color: #f5efe7;
-    background-image:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(134, 100, 77, 0.06)),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cdefs%3E%3Cfilter id='fur'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' seed='7'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0.18'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23fur)'%3E%3Crect width='320' height='320' fill='transparent'/%3E%3C/g%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cg stroke='%236a4d35' stroke-opacity='.22' stroke-width='1.5'%3E%3Cpath d='M-16 30 C 10 10, 30 14, 52 32 S 98 62, 120 26 S 176 8, 212 30 S 270 64, 336 34'/%3E%3Cpath d='M-26 86 C 6 70, 26 78, 48 92 S 96 108, 126 80 S 186 62, 214 92 S 262 120, 338 88'/%3E%3Cpath d='M-14 146 C 16 130, 34 136, 60 146 S 112 176, 138 142 S 190 124, 222 148 S 278 182, 334 150'/%3E%3Cpath d='M-10 204 C 18 190, 44 184, 70 200 S 112 228, 144 196 S 196 174, 226 200 S 276 230, 332 204'/%3E%3Cpath d='M-12 266 C 18 250, 40 254, 62 270 S 110 294, 144 268 S 182 246, 232 270 S 284 290, 342 262'/%3E%3Cpath d='M34 8 C 52 25, 68 14, 86 28 S 116 52, 146 22 S 188 8, 218 26 S 258 40, 290 20'/%3E%3Cpath d='M18 118 C 40 132, 58 120, 80 130 S 116 154, 146 126 S 186 116, 212 132 S 256 152, 292 130'/%3E%3Cpath d='M22 174 C 48 188, 66 176, 92 188 S 130 214, 160 188 S 196 170, 224 188 S 262 208, 296 188'/%3E%3C/g%3E%3Cg stroke='%23956d4a' stroke-opacity='.16' stroke-width='1.2'%3E%3Cpath d='M48 54 C 66 72, 78 62, 98 54 S 132 42, 156 68 S 197 86, 220 62 S 268 54, 292 70'/%3E%3Cpath d='M36 120 C 58 136, 72 126, 92 122 S 126 136, 156 116 S 192 104, 220 124 S 258 140, 286 124'/%3E%3Cpath d='M50 214 C 70 228, 88 214, 106 220 S 144 242, 170 218 S 208 208, 236 220 S 268 236, 292 220'/%3E%3C/g%3E%3Cg fill='%23895d3d' fill-opacity='.09'%3E%3Cellipse cx='34' cy='52' rx='8' ry='6'/%3E%3Cellipse cx='86' cy='88' rx='9' ry='7'/%3E%3Cellipse cx='138' cy='58' rx='8' ry='6'/%3E%3Cellipse cx='186' cy='100' rx='10' ry='7'/%3E%3Cellipse cx='248' cy='82' rx='9' ry='6'/%3E%3Cellipse cx='72' cy='146' rx='8' ry='6'/%3E%3Cellipse cx='148' cy='172' rx='10' ry='7'/%3E%3Cellipse cx='220' cy='160' rx='8' ry='6'/%3E%3Cellipse cx='128' cy='234' rx='9' ry='7'/%3E%3Cellipse cx='204' cy='236' rx='9' ry='7'/%3E%3C/g%3E%3C/svg%3E");
-    background-size: 100% 100%, 320px 320px;
-    background-position: center, 0 0;
-    background-repeat: no-repeat, repeat;
-    background-attachment: fixed, fixed;
+    background-color: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+  }
+
+  /*
+   * Textura de fondo en una capa fija PROPIA. Antes era "background-attachment: fixed"
+   * en el body, lo que repinta el SVG (con filtro de ruido) en cada fotograma del scroll
+   * y no funciona en iOS. Así se pinta una vez y el navegador solo la compone.
+   */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(134, 100, 77, 0.06)),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cdefs%3E%3Cfilter id='fur'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' seed='7'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0.18'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23fur)'%3E%3Crect width='320' height='320' fill='transparent'/%3E%3C/g%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cg stroke='%236a4d35' stroke-opacity='.22' stroke-width='1.5'%3E%3Cpath d='M-16 30 C 10 10, 30 14, 52 32 S 98 62, 120 26 S 176 8, 212 30 S 270 64, 336 34'/%3E%3Cpath d='M-26 86 C 6 70, 26 78, 48 92 S 96 108, 126 80 S 186 62, 214 92 S 262 120, 338 88'/%3E%3Cpath d='M-14 146 C 16 130, 34 136, 60 146 S 112 176, 138 142 S 190 124, 222 148 S 278 182, 334 150'/%3E%3Cpath d='M-10 204 C 18 190, 44 184, 70 200 S 112 228, 144 196 S 196 174, 226 200 S 276 230, 332 204'/%3E%3Cpath d='M-12 266 C 18 250, 40 254, 62 270 S 110 294, 144 268 S 182 246, 232 270 S 284 290, 342 262'/%3E%3Cpath d='M34 8 C 52 25, 68 14, 86 28 S 116 52, 146 22 S 188 8, 218 26 S 258 40, 290 20'/%3E%3Cpath d='M18 118 C 40 132, 58 120, 80 130 S 116 154, 146 126 S 186 116, 212 132 S 256 152, 292 130'/%3E%3Cpath d='M22 174 C 48 188, 66 176, 92 188 S 130 214, 160 188 S 196 170, 224 188 S 262 208, 296 188'/%3E%3C/g%3E%3Cg stroke='%23956d4a' stroke-opacity='.16' stroke-width='1.2'%3E%3Cpath d='M48 54 C 66 72, 78 62, 98 54 S 132 42, 156 68 S 197 86, 220 62 S 268 54, 292 70'/%3E%3Cpath d='M36 120 C 58 136, 72 126, 92 122 S 126 136, 156 116 S 192 104, 220 124 S 258 140, 286 124'/%3E%3Cpath d='M50 214 C 70 228, 88 214, 106 220 S 144 242, 170 218 S 208 208, 236 220 S 268 236, 292 220'/%3E%3C/g%3E%3Cg fill='%23895d3d' fill-opacity='.09'%3E%3Cellipse cx='34' cy='52' rx='8' ry='6'/%3E%3Cellipse cx='86' cy='88' rx='9' ry='7'/%3E%3Cellipse cx='138' cy='58' rx='8' ry='6'/%3E%3Cellipse cx='186' cy='100' rx='10' ry='7'/%3E%3Cellipse cx='248' cy='82' rx='9' ry='6'/%3E%3Cellipse cx='72' cy='146' rx='8' ry='6'/%3E%3Cellipse cx='148' cy='172' rx='10' ry='7'/%3E%3Cellipse cx='220' cy='160' rx='8' ry='6'/%3E%3Cellipse cx='128' cy='234' rx='9' ry='7'/%3E%3Cellipse cx='204' cy='236' rx='9' ry='7'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:
+      100% 100%,
+      320px 320px;
+    background-position:
+      center,
+      0 0;
+    background-repeat: no-repeat, repeat;
+    transform: translateZ(0);
+  }
+
+  /*
+   * Grano global: ruido fino en una capa fija SOBRE todo el sitio (fondos, header, footer
+   * y fotos), como el acabado "film grain" de los sitios editoriales. Es estática (se pinta
+   * una vez y solo se compone al hacer scroll), no recibe clics y queda bajo el cursor (z-100).
+   */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    /* Ruido en escala de grises con el contraste aumentado (feComponentTransfer) para que el grano sea nítido. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='3' intercept='-1'/%3E%3CfeFuncG type='linear' slope='3' intercept='-1'/%3E%3CfeFuncB type='linear' slope='3' intercept='-1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    opacity: 0.14;
+    transform: translateZ(0);
   }
 
   ::selection {
@@ -92,29 +139,79 @@
   main > section {
     position: relative;
     isolation: isolate;
-    overflow: hidden;
+    /* Recorta solo en horizontal: el borde ondulado sobresale hacia arriba, sobre la sección anterior. */
+    overflow-x: clip;
     background-color: var(--color-cream);
   }
 
   main > section:nth-of-type(odd) {
-    background-color: #f7f3ec;
+    background-color: var(--color-cream);
   }
 
   main > section:nth-of-type(even) {
-    background-color: #efe7dc;
+    background-color: var(--color-linen);
   }
 
-  main > section::before {
+  /*
+   * Unión entre secciones: fundido suave. Sin borde ni forma: el borde superior de cada sección
+   * (menos la primera) se difumina sobre la anterior en --fade-h píxeles, así los colores se
+   * mezclan como en una transición de cine. La máscara usa una curva de suavizado (smoothstep,
+   * no lineal) para que el degradado empiece y termine casi sin notarse. Para más o menos
+   * difuminado, cambia --fade-h.
+   * La sección anterior debe tener más relleno inferior que --fade-h (hoy ≤ 64px).
+   */
+  :root {
+    --fade-h: clamp(36px, 4.5vw, 64px);
+  }
+
+  main > section:not(:first-of-type)::before,
+  footer.theme-dark::before {
     content: "";
     position: absolute;
-    left: -2.5%;
-    top: -20px;
-    width: 105%;
-    height: 42px;
+    top: calc(var(--fade-h) * -1);
+    right: 0;
+    left: 0;
+    height: calc(var(--fade-h) + 1px);
     background: inherit;
-    border-radius: 0 0 50% 50% / 0 0 100% 100%;
-    box-shadow: 0 10px 0 0 rgba(43, 38, 34, 0.04);
+    pointer-events: none;
     z-index: 0;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0) 0%,
+      rgb(0 0 0 / 0.03) 10%,
+      rgb(0 0 0 / 0.1) 20%,
+      rgb(0 0 0 / 0.22) 30%,
+      rgb(0 0 0 / 0.38) 40%,
+      rgb(0 0 0 / 0.56) 50%,
+      rgb(0 0 0 / 0.72) 60%,
+      rgb(0 0 0 / 0.85) 70%,
+      rgb(0 0 0 / 0.94) 80%,
+      rgb(0 0 0 / 0.98) 90%,
+      rgb(0 0 0 / 1) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0) 0%,
+      rgb(0 0 0 / 0.03) 10%,
+      rgb(0 0 0 / 0.1) 20%,
+      rgb(0 0 0 / 0.22) 30%,
+      rgb(0 0 0 / 0.38) 40%,
+      rgb(0 0 0 / 0.56) 50%,
+      rgb(0 0 0 / 0.72) 60%,
+      rgb(0 0 0 / 0.85) 70%,
+      rgb(0 0 0 / 0.94) 80%,
+      rgb(0 0 0 / 0.98) 90%,
+      rgb(0 0 0 / 1) 100%
+    );
+  }
+
+  /* El pie lleva su propio espacio; sin sección final, se separa del contenido. */
+  footer.theme-dark {
+    position: relative;
+  }
+
+  main:not(:has(> section:last-child)) + footer.theme-dark {
+    margin-top: 6rem;
   }
 
   main > section > * {
@@ -122,10 +219,310 @@
     z-index: 1;
   }
 
-  main > section:first-of-type::before {
-    top: -28px;
-    height: 60px;
-    border-radius: 0 0 52% 48% / 0 0 100% 100%;
+  /*
+   * Paleta oscura (header, footer y secciones con foto): se invierte a tonos claros
+   * redefiniendo los tokens, así los componentes (text-ink, text-muted, botones...) se
+   * adaptan sin cambiar sus clases. Dentro de este ámbito "cream" es la superficie
+   * oscura (#1f130c) e "ink" el texto claro.
+   * Contraste sobre #1f130c: ink 14,3 · muted 10,4 · clay 9,3. Sobre el velo de las
+   * fotos en el peor caso (foto blanca): ink 9,8 · muted 6,3 · clay 5,2.
+   */
+  .theme-dark,
+  main > section.on-photo {
+    --color-ink: #f1e2ce;
+    --color-ink-soft: #e8d7c3;
+    --color-cream: #1f130c;
+    --color-linen: #2f190c;
+    --color-muted: #d6c1ac;
+    --color-sage: #b5c2a0;
+    --color-clay: #e08a63;
+    --color-line: rgb(241 226 206 / 0.22);
+    color: var(--color-ink);
+  }
+
+  /* Sección oscura sin foto (p. ej. la galería): usa la superficie oscura del tema. */
+  main > section.theme-dark {
+    background-color: var(--color-cream);
+  }
+
+  main > section.on-photo {
+    background-color: var(--color-night);
+  }
+}
+
+/*
+ * Grano de película: ruido SVG en una capa más grande que la sección que se desplaza
+ * a saltos (steps), así parece "vivo" sin repintar: solo se compone el transform.
+ * La regla de prefers-reduced-motion de abajo lo deja estático.
+ */
+.photo-grain::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  animation: grain 0.9s steps(6) infinite;
+  will-change: transform;
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-6%, 4%);
+  }
+  40% {
+    transform: translate(5%, -7%);
+  }
+  60% {
+    transform: translate(-3%, 9%);
+  }
+  80% {
+    transform: translate(8%, 2%);
+  }
+  100% {
+    transform: translate(-5%, -4%);
+  }
+}
+
+/* Header sobre el menú móvil a pantalla completa (fondo oscuro). */
+[data-site-header],
+[data-logo-mark],
+[data-logo-word],
+[data-logo-accent] {
+  transition:
+    background-color 500ms var(--ease-soft),
+    border-color 500ms var(--ease-soft),
+    color 500ms var(--ease-soft),
+    rotate 500ms var(--ease-soft);
+}
+
+html[data-menu-open] [data-site-header] {
+  background-color: transparent;
+  border-color: transparent;
+  backdrop-filter: none;
+}
+
+html[data-menu-open] [data-logo-mark],
+html[data-menu-open] [data-logo-accent] {
+  color: var(--color-clay-light);
+}
+
+/*
+ * Cursor personalizado (solo escritorio con mouse): la clase la agrega CustomCursor al montarse,
+ * así que sin JavaScript o en táctiles se conserva el cursor nativo. Los campos de texto
+ * mantienen el I-beam.
+ */
+html.has-custom-cursor * {
+  cursor: none;
+}
+
+html.has-custom-cursor
+  :is(textarea, input:not([type="checkbox"], [type="radio"], [type="file"], [type="submit"], [type="button"])) {
+  cursor: text;
+}
+
+/*
+ * Íconos animados de seguimiento (StageIcon). Todo vive dentro de "no-preference": con
+ * movimiento reducido son imágenes fijas. Solo se animan transform, opacity y trazos SVG.
+ * `transform-box: fill-box` hace que el origen de cada transformación sea el propio elemento.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  [class*="trk-"] {
+    transform-box: fill-box;
+  }
+
+  /* Huellas que aparecen en secuencia (el retraso de cada una va en línea). */
+  .trk-step {
+    transform-origin: center;
+    animation: trk-step 3.2s ease-out infinite;
+  }
+
+  .trk-door {
+    transform-origin: 0 50%;
+    animation: trk-door 5s ease-in-out infinite;
+  }
+  .trk-i-land {
+    animation: trk-i-land 5s var(--ease-soft) infinite;
+  }
+  .trk-glow {
+    animation: trk-glow 2s ease-in-out infinite alternate;
+  }
+  .trk-i-drop {
+    animation: trk-i-drop 3.2s var(--ease-soft) infinite;
+  }
+  .trk-i-sweep {
+    animation: trk-i-sweep 2.6s ease-in-out infinite;
+  }
+  .trk-check {
+    stroke-dasharray: 1;
+    animation: trk-draw 3s ease-out infinite;
+  }
+  .trk-ring {
+    transform-origin: center;
+    animation: trk-ring 2.2s ease-out infinite;
+  }
+  .trk-paint {
+    animation: trk-paint 4.5s ease-in-out infinite;
+  }
+  .trk-sparkle {
+    transform-origin: center;
+    animation: trk-twinkle 2s ease-in-out infinite;
+  }
+  .trk-i-heart {
+    animation: trk-i-heart 2.4s ease-out infinite;
+  }
+}
+
+@keyframes trk-step {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  8% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  14% {
+    transform: scale(1);
+  }
+  62% {
+    opacity: 1;
+  }
+  80%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes trk-door {
+  0%,
+  22% {
+    transform: scaleX(1);
+  }
+  38%,
+  76% {
+    transform: scaleX(0.16);
+  }
+  92%,
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes trk-i-land {
+  0% {
+    transform: translateY(-24px);
+    opacity: 0;
+  }
+  12% {
+    transform: translateY(2px);
+    opacity: 1;
+  }
+  18%,
+  90% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+@keyframes trk-glow {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes trk-i-drop {
+  0% {
+    transform: translateY(-26px);
+    opacity: 0;
+  }
+  22% {
+    transform: translateY(3px);
+    opacity: 1;
+  }
+  32% {
+    transform: translateY(-2px);
+  }
+  42%,
+  86% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+@keyframes trk-i-sweep {
+  0%,
+  100% {
+    transform: translate(-8px, -3px);
+  }
+  50% {
+    transform: translate(5px, 5px);
+  }
+}
+@keyframes trk-draw {
+  0%,
+  12% {
+    stroke-dashoffset: 1;
+  }
+  40%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes trk-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+@keyframes trk-paint {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+  70%,
+  92% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+@keyframes trk-twinkle {
+  0%,
+  100% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes trk-i-heart {
+  0% {
+    transform: translateY(4px) scale(0.6);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-13px) scale(1.15);
+    opacity: 0;
   }
 }
 
