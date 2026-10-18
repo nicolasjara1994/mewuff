@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { mainNav, trackingNav } from "@/lib/site";
 
+import { HeaderScrollState } from "./HeaderScrollState";
 import { Logo } from "./Logo";
 import { MobileNav } from "./MobileNav";
 
@@ -15,6 +16,7 @@ export function SiteHeader() {
       className="theme-dark fixed inset-x-0 top-0 z-40 border-b border-line/60 bg-cream/95 backdrop-blur-md supports-[backdrop-filter]:bg-cream/90"
     >
       <Container className="flex h-16 items-center justify-between gap-6 sm:h-20">
+        <HeaderScrollState />
         <Logo />
 
         <nav aria-label="Principal" className="hidden md:block">
