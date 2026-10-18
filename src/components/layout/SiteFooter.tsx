@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { mainNav, siteConfig, trackingNav } from "@/lib/site";
 
 import { Logo } from "./Logo";
+import { SocialIcon } from "./SocialIcon";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -31,28 +32,30 @@ export function SiteFooter() {
           </ul>
         </nav>
 
-        <div>
+        <div className="rounded-[1.75rem] bg-night p-6 sm:col-span-2 lg:col-span-1">
           <h2 className="text-xs font-medium tracking-[0.2em] text-ink uppercase">Síguenos</h2>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-5 flex items-center gap-3">
             {siteConfig.social.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted transition-colors hover:text-ink"
+                  aria-label={item.label}
+                  className="flex size-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-colors duration-300 hover:border-clay-light hover:text-clay-light"
                 >
-                  {item.label}
+                  <SocialIcon name={item.label} className="size-5" />
                   <span className="sr-only"> (se abre en una pestaña nueva)</span>
                 </a>
               </li>
             ))}
-            <li>
-              <a href={`mailto:${siteConfig.contact.email}`} className="text-muted transition-colors hover:text-ink">
-                {siteConfig.contact.email}
-              </a>
-            </li>
           </ul>
+          <a
+            href={`mailto:${siteConfig.contact.email}`}
+            className="mt-5 block text-sm break-all text-muted transition-colors hover:text-ink"
+          >
+            {siteConfig.contact.email}
+          </a>
         </div>
       </Container>
 
