@@ -17,7 +17,7 @@ export function SiteHeader() {
     >
       <Container className="flex h-16 items-center justify-between gap-6 sm:h-20">
         <HeaderScrollState />
-        <Logo />
+        <Logo adaptive />
 
         <nav aria-label="Principal" className="hidden md:block">
           <ul className="flex items-center gap-8">

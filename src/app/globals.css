@@ -567,3 +567,12 @@ html.has-custom-cursor
 html[data-header-hidden]:not([data-menu-open]) [data-site-header] {
   transform: translateY(-100%);
 }
+
+/* Logo del header: blanco arriba y con el menú abierto; negro cuando el header es translúcido claro. */
+html[data-scrolled]:not([data-menu-open]) [data-logo-light] {
+  display: none;
+}
+
+html[data-scrolled]:not([data-menu-open]) [data-logo-dark] {
+  display: block;
+}
