@@ -15,9 +15,11 @@ export function SiteHeader() {
       data-site-header
       className="theme-dark fixed inset-x-0 top-0 z-40 border-b border-line/60 bg-cream/95 backdrop-blur-md supports-[backdrop-filter]:bg-cream/90"
     >
-      <Container className="flex h-16 items-center justify-between gap-6 sm:h-20">
+      <Container className="relative flex h-16 items-center justify-between gap-6 sm:h-20">
         <HeaderScrollState />
-        <Logo adaptive />
+        <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
+          <Logo adaptive />
+        </div>
 
         <nav aria-label="Principal" className="hidden md:block">
           <ul className="flex items-center gap-8">
@@ -41,7 +43,7 @@ export function SiteHeader() {
           </ButtonLink>
         </div>
 
-        <div className="flex items-center gap-1 md:hidden">
+        <div className="ml-auto flex items-center gap-1 md:hidden">
           <CartLink />
           <MobileNav />
         </div>
