@@ -298,7 +298,8 @@
     background-color 500ms var(--ease-soft),
     border-color 500ms var(--ease-soft),
     color 500ms var(--ease-soft),
-    rotate 500ms var(--ease-soft);
+    rotate 500ms var(--ease-soft),
+    transform 400ms var(--ease-soft);
 }
 
 /* Con scroll: el color sólido se aplica solo arriba del todo; luego queda translúcido con blur y texto oscuro. */
@@ -560,4 +561,9 @@ html.has-custom-cursor
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* El header se oculta al bajar y reaparece al subir (nunca con el menú móvil abierto). */
+html[data-header-hidden]:not([data-menu-open]) [data-site-header] {
+  transform: translateY(-100%);
 }
