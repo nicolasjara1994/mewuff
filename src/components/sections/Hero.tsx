@@ -73,10 +73,6 @@ export function Hero() {
             />
           </Parallax>
           <PlaceholderBadge className="absolute top-4 right-4" />
-          <div className="absolute -bottom-6 left-4 max-w-[15rem] rounded-2xl border border-line/70 bg-cream/90 p-4 shadow-[0_20px_40px_-24px_rgb(47_25_12/0.5)] backdrop-blur sm:left-[-1.5rem]">
-            <p className="font-display text-lg leading-snug text-ink">“Hasta el último bigote.”</p>
-            <p className="mt-1 text-xs text-muted">Cada detalle se revisa con tus fotos.</p>
-          </div>
         </div>
       </Container>
     </section>
