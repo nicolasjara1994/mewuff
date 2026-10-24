@@ -70,7 +70,7 @@ export function TrackingTimeline({ stages }: { stages: StageView[] }) {
               </>
             )}
 
-            <span className="relative z-10 shrink-0">
+            <span className="relative z-10 block shrink-0 size-20">
               {current && (
                 <span
                   aria-hidden="true"
