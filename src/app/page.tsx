@@ -28,7 +28,6 @@ export default async function HomePage() {
                 id="process-title"
                 eyebrow="Cómo funciona"
                 title="De tus fotos a una pieza única, en cinco pasos."
-                description="Te acompañamos en todo el proceso y te mostramos un avance antes de crear la figura."
               />
             </Reveal>
             <Reveal delay={0.1}>

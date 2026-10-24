@@ -12,8 +12,8 @@ import type { GalleryItem } from "@/types/gallery";
  *     leerla aquí (es async a propósito) y agregar el dominio de Supabase en
  *     `images.remotePatterns` de next.config.ts.
  */
-const LEIA_ALT = "Fotografía de muestra de Leia, una gata blanca de ojos color ámbar mirando hacia arriba.";
-const LUKE_ALT = "Fotografía de muestra de Luke, un gato gris de ojos color ámbar con la cabeza ladeada.";
+const LEIA_ALT = "Leia, una gata blanca de ojos color ámbar mirando hacia arriba.";
+const LUKE_ALT = "Luke, un gato gris de ojos color ámbar con la cabeza ladeada.";
 
 const DEMO_ITEMS: GalleryItem[] = [
   {

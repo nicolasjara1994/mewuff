@@ -1,15 +1,8 @@
-import { cn } from "@/lib/cn";
-
-/** Marca visible para imágenes de muestra, de modo que nunca se confundan con trabajos reales. */
+/**
+ * La marca visible de ejemplo se elimina para no interrumpir la presentación final.
+ * Si más adelante se quiere reutilizar, se puede volver a activarla con un prop.
+ */
 export function PlaceholderBadge({ className }: { className?: string }) {
-  return (
-    <span
-      className={cn(
-        "rounded-full bg-cream/85 px-2.5 py-1 text-[0.65rem] font-medium tracking-[0.14em] text-muted uppercase backdrop-blur-sm",
-        className,
-      )}
-    >
-      Imagen de muestra
-    </span>
-  );
+  void className;
+  return null;
 }

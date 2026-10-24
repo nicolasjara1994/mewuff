@@ -32,8 +32,7 @@ export function Hero() {
             Tu mascota, convertida en una <em className="text-clay">pieza única.</em>
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-pretty text-muted motion-safe:animate-fade-up motion-safe:[animation-delay:160ms] sm:text-xl">
-            Creamos figuras personalizadas a partir de tus fotografías. Cada pieza se modela y se pinta a mano para
-            capturar su mirada, sus manchas y su forma de ser.
+            Creamos mini esculturas y productos premium personalizados a partir de tus fotografías.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] sm:flex-row sm:items-center sm:gap-4">

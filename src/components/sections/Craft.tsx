@@ -31,7 +31,7 @@ export function Craft() {
             <Parallax offset={20} className="aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-line">
               <Image
                 src={craftImage}
-                alt="Fotografía de muestra de Luke, un gato gris de ojos color ámbar con la cabeza ladeada."
+                alt="Luke, un gato gris de ojos color ámbar con la cabeza ladeada."
                 placeholder="blur"
                 sizes="(min-width: 1024px) 40vw, 92vw"
                 className="h-full w-full scale-[1.05] object-cover object-[50%_45%]"
